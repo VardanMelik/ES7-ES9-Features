@@ -26,8 +26,21 @@ const es9Object = Object.entries(user);
 const es9Array  = Object.entries(name);
 const es9Symbol = Object.entries(admin);
 
+// Array to Object
+// .fromEntries() using
+const arr = [['one', 2], ['two', 2], ['three', 3]];
+const es9ArrayToObj = Object.fromEntries(arr);
+
+// .values() using
+const userVal = {
+    firstName: 'Gagik',
+    lastName: 'Varotyan'
+};
+
+const es9Val = Object.values(userVal);
+
 
 app.get('/es9', (req, res) => {
-    res.json(es9Symbol);
+    res.json(es9Val);
 })
 
