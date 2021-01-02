@@ -1,4 +1,5 @@
 const express = require('express');
+const { resolve } = require('path');
 const app = express();
 
 const PORT = process.env.PORT || 3000;
@@ -34,3 +35,49 @@ console.log('Array2: ' + arr2);
 const arr3 = [1,2, [3,4, [5,6]]];
 arr3.flat(2);
 console.log(arr3);
+
+// flat() of Infinity level
+const arr4 = [1,2 [3,4, [5,6, [7,8], 9,10]]];
+arr4.flat(Infinity);
+console.log(arr4);
+
+// Using of .flatMap()
+/*const arr7 = [[1], [2], [3], [4]];
+arr7.flapMap(x => [x]);*/
+
+// Async Iterators
+
+// Base Array (iterabl instance)
+const names = ['Jack', 'Max', 'Leo'];
+
+// for-of iteration
+for (let name of names) {
+    console.log(name);
+};
+
+// Base async Array
+const namesAsync = [
+    new Promise(resolve => resolve('Jack')),
+    new Promise(resolve => resolve('Max')),
+    new Promise(resolve => resolve('Leo'))
+];
+
+// Async function for iteration with 'for-of '
+/*const showNames = async () => {
+    for (let name of names) {
+        console.log('For of ' + name);
+    }
+};
+
+showNames(); */
+// Promise
+
+//Async function for iteration with 'for-await-of'
+const showNames = async () => {
+    for await (let name of names) {
+        console.log('For Await of: ' + name);
+    }
+};
+
+showNames();
+
